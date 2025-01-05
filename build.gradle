@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group = 'xyz.toastberries.bluemap.floodgateskins'
+version = '1.0'
+
+base {
+    archivesName = 'bluemap-floodgate-skins'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+
+    // Repository for BlueMap
+    maven { url 'https://repo.bluecolored.de/releases' }
+
+    // Repository for Floodgate
+    // maven { url 'https://repo.opencollab.dev/main/' }
+}
+
+dependencies {
+    compileOnly 'de.bluecolored:bluemap-api:2.7.3'
+    // compileOnly 'de.bluecolored:bluemap-common:5.5'
+    compileOnly 'de.bluecolored:bluemap-core:5.5'
+
+    // These ended up being only used as reference material.
+    // compileOnly ('org.geysermc.floodgate:api:2.2.3-SNAPSHOT') { exclude group: '*', module: '*' }
+    // compileOnly ('org.geysermc.floodgate:common:2.1.0-SNAPSHOT') { exclude group: '*', module: '*' }
+    // compileOnly ('org.geysermc.floodgate:core:2.2.3-SNAPSHOT') { exclude group: '*', module: '*' }
+}
+
